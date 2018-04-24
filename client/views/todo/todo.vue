@@ -23,39 +23,39 @@ let id = 0
 export default {
   data () {
     return {
-      todos:[],
-      filter: 'all',
+      todos: [],
+      filter: 'all'
     }
   },
-  computed:{
+  computed: {
     filteredTodos () {
-      if(this.filter === 'all'){
-        return this.todos;
+      if (this.filter === 'all') {
+        return this.todos
       }
-      const completed = this.filter === 'completed';
+      const completed = this.filter === 'completed'
       return this.todos.filter(todo => completed === todo.completed)
     }
   },
-  methods:{
+  methods: {
     addTodo (e) {
       this.todos.unshift({
         id: id++,
         conent: e.target.value.trim(),
         completed: false
-      });
-      e.target.value = '';
+      })
+      e.target.value = ''
     },
     deleteTodo (id) {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id),1)
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
     toggleFliter (state) {
       this.filter = state
     },
     clearAllCompleted () {
-      this.todos = this.todos.filter(function(todo){
-        console.log(todo);
-        return !todo.completed;
-      });
+      this.todos = this.todos.filter(function (todo) {
+        console.log(todo)
+        return !todo.completed
+      })
     }
   },
   components: {

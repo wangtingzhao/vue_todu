@@ -29,16 +29,23 @@ if (isDev) {
       module: {
         rules: [
           {
+            test: /\.(vue|js|jsx)$/,
+            loader: 'eslint-loader',
+            exclude: /node_modules/,
+            enforce: 'pre'
+          },
+          {
             test: /\.styl/,
             use: [
                 'style-loader',
-                {
-                  loader:  'css-loader',
-                  options: {
-                    module:true,
-                    localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]'
-                  }
-                },
+                'css-loader',
+                // {
+                //   loader:  'css-loader',
+                //   options: {
+                //     module:true,
+                //     localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]'
+                //   }
+                // },
                 {
                     loader: "postcss-loader",
                     options: {
