@@ -4,5 +4,7 @@
   // vue 生命周期
   import './lifecycle'
   // vue 数据绑定
+  import './data_bingding'
+  // vue 计算属性 computed
 */
-import './data_bingding'
+import './computed'
