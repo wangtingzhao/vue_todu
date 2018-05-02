@@ -6,5 +6,7 @@
   // vue 数据绑定
   import './data_bingding'
   // vue 计算属性 computed
+  import './computed'
+  // vue 原生指令
 */
-import './computed'
+import './directive'
