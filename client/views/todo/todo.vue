@@ -21,6 +21,26 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouter enter')
+    // next(vm => {
+    //   // 数据提前获取好
+    //   console.log('this is vm id ', vm.id)
+    // })
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouter Updata')
+    next()
+  },
+  beforeRouteLeave: (to, from, next) => {
+    console.log('beforeRouter Leave')
+    //  离开时的事件
+    // if (global.confirm('are you sure ?')) {
+    //   next()
+    // }
+    next()
+  },
   props: ['id'],
   data () {
     return {
