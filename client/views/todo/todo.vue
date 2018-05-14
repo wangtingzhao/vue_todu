@@ -1,14 +1,14 @@
 <template>
-  <section class="real-app"> 
-    <input type="text" class="add-input" autofocus='autofocus' placeholder="接下来要做什么？" @keyup.enter="addTodo"> 
-    <item 
+  <section class="real-app">
+    <input type="text" class="add-input" autofocus='autofocus' placeholder="接下来要做什么？" @keyup.enter="addTodo">
+    <item
       v-for='todo in filteredTodos '
       :key='todo.id'
       :todo='todo'
       @del='deleteTodo'
-    />  
-    <Tabs 
-      :filter='filter' 
+    />
+    <Tabs
+      :filter='filter'
       :todos='todos'
       @toggle='toggleFliter'
       @clearAllCompleted='clearAllCompleted'
@@ -21,6 +21,7 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  props: ['id'],
   data () {
     return {
       todos: [],
@@ -57,6 +58,9 @@ export default {
         return !todo.completed
       })
     }
+  },
+  mounted () {
+    console.log(this.id)
   },
   components: {
     Item,
