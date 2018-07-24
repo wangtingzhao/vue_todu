@@ -2,9 +2,9 @@
 <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <P>{{counter}} {{fullName}}</P>
-    <p>{{text}}</p>
-    <p>{{textPuls}}</p>
+    <!-- <P>{{counter}} {{fullName}}</P>
+    <p>{{textC}}</p>
+    <p>{{textPuls}}</p> -->
     <!-- <Todo></Todo> -->
     <!-- <router-link to='/app/123'>app123</router-link> -->
     <router-link to='/app'>app</router-link>
@@ -29,18 +29,19 @@ export default {
     // Todo
   },
   methods: {
-    ...mapActions(['updataCountAsync', 'a/add']),
+    ...mapActions(['updataCountAsync', 'a/add', 'b/testActions']),
     ...mapMutations(['updataCount', 'a/updataText'])
   },
   mounted () {
-    console.log(this.$route)
-    console.log(this.$store.state.count)
+    // console.log(this.$route)
+    // console.log(this.$store.state.count)
     // this.$store.state.count = 9
     this.updataCountAsync({
       num: 5,
       time: 2000
     })
-    this['a/add']()
+    // this['a/add']()
+    // this['b/testActions']()
     // this['a/updataText']('123')
 
     // let i = 1
@@ -57,15 +58,16 @@ export default {
     //   counter: 'count'
     // }),
     ...mapState({
-      counter: (state) => state.count,
-      text: (state) => state.a.text
+      // counter: (state) => state.count,
+      // text: (state) => state.a.text,
+      // textC: state => state.c.text
     }),
     // count () {
     //   return this.$store.state.count
     // }
     ...mapGetters({
-      'fullName': 'fullName',
-      textPuls: 'a/textPuls'
+      'fullName': 'fullName'
+      // textPuls: 'a/textPuls'
     })
     // fullName () {
     //   return this.$store.getters.fullName
